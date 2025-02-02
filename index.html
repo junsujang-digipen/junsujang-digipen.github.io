@@ -126,7 +126,7 @@
         <h2 class="heading"> Projects </h2>
         <div class="container">
             <div class="row">
-                <div class="project shadow-large">
+                <div class="project shadow-large" onclick="openModal('jjengine')">
                     <div class="project-image">
                         <img src="images/JJEngineThumbnail.png" width="300" >
                     </div>
@@ -138,6 +138,15 @@
                         <a href="./Projects/JJEngine 764eea9874124acaa622dc1b92b57ad8.html">View Project</a>
                     </div>
                     <!-- End .project-info -->
+                </div>
+                <div id="jjengineModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('jjengine')">&times;</span>
+                        <h3>JJEngine</h3>
+                        <img src="images/JJEngineThumbnail.png" style="max-width: 100%; margin: 20px 0;">
+                        <p>A team project for game engine and editor. Editor support varied functions to use easily. Engine is written in C++ and scripting language is C#.</p>
+                        <a href="./Projects/JJEngine 764eea9874124acaa622dc1b92b57ad8.html" class="btn-rounded-white">자세히 보기</a>
+                    </div>
                 </div>
                 <!-- End .project -->
                 <div class="project shadow-large">
@@ -241,7 +250,7 @@
                         <p>
                             만들래 10분게임 콘테스트를 위해 만들었던 게임입니다. 블럭을 굴려서 다가오는 몬스터를 저지하는 캐주얼 퍼즐게임으로 안드로이드를 주 플랫폼으로 PC와 웹 까지 지원하도록 제작하였습니다. 
                         </p>
-                        <a href="">View Project</a>
+                        <a href="./Projects/Graphics Engine 824ce05e9a1147e1af50605c139fd9fe.html">View Project</a>
                     </div>
                 </div>
 
@@ -333,6 +342,36 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/scripts.min.js"></script>
+
+    <script>
+    function openModal(projectId) {
+        document.getElementById(projectId + 'Modal').style.display = "block";
+        // body에 modal-open 클래스 추가
+        document.body.classList.add('modal-open');
+    }
+
+    function closeModal(projectId) {
+        document.getElementById(projectId + 'Modal').style.display = "none";
+        // body에서 modal-open 클래스 제거
+        document.body.classList.remove('modal-open');
+    }
+
+    // 모달 외부 클릭 시 닫기
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+            document.body.classList.remove('modal-open');
+        }
+    }
+
+    // 모달 내부 클릭 시 이벤트 전파 중단
+    document.querySelectorAll('.modal-content').forEach(modal => {
+        modal.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+    </script>
+    
 </body>
 
 </html>
