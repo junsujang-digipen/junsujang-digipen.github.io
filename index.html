@@ -126,6 +126,7 @@
         <h2 class="heading"> Projects </h2>
         <div class="container">
             <div class="row">
+                <!-- ------------------------------------------------------------------------------------------- -->
                 <div class="project shadow-large" onclick="openModal('jjengine')">
                     <div class="project-image">
                         <img src="images/JJEngineThumbnail.png" width="300" >
@@ -135,21 +136,18 @@
                         <h3>JJEngine</h3>
                         <p> A team project for game engine and editor. Editor support varied functions to use easily. Engine is written in C++ and scripting language is C#.
                         </p>
-                        <a href="./Projects/JJEngine 764eea9874124acaa622dc1b92b57ad8.html">View Project</a>
+                        <a href="./Projects/jjengine.html">View Project</a>
                     </div>
                     <!-- End .project-info -->
                 </div>
                 <div id="jjengineModal" class="modal">
                     <div class="modal-content">
                         <span class="close" onclick="closeModal('jjengine')">&times;</span>
-                        <h3>JJEngine</h3>
-                        <img src="images/JJEngineThumbnail.png" style="max-width: 100%; margin: 20px 0;">
-                        <p>A team project for game engine and editor. Editor support varied functions to use easily. Engine is written in C++ and scripting language is C#.</p>
-                        <a href="./Projects/JJEngine 764eea9874124acaa622dc1b92b57ad8.html" class="btn-rounded-white">자세히 보기</a>
+                        <div id="jjengine-modalContent"></div>
                     </div>
                 </div>
-                <!-- End .project -->
-                <div class="project shadow-large">
+                <!-- ------------------------------------------------------------------------------------------- -->
+                <div class="project shadow-large" onclick="openModal('SpyTheMan')">
                     <div class="project-image">
                         <img src="images/SpyTheManThumb.png" width="300">
                     </div>
@@ -158,11 +156,17 @@
                         <h3>Spy The Man</h3>
                         <p> A team project of four programmers. A game about reaching a goal point by avoiding hostile NPCs. Built our own engine and game. Mainly implemented the engine part and AI.
                         </p>
-                        <a href="./Projects/Spy The Man 0eb3937840324325b0563b7ce4d11dd2.html">View Project</a>
+                        <a href="./Projects/SpyTheMan.html">View Project</a>
                     </div>
                     <!-- End .project-info -->
                 </div>
-                <!-- End .project -->
+                <div id="SpyTheManModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('SpyTheMan')">&times;</span>
+                        <iframe src="./Projects/SpyTheMan.html" style="width: 100%; height: 80vh; border: none;"></iframe>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------------------------- -->
                 <div class="project shadow-large">
                     <div class="project-image">
                         <img src="images/WaveCollapseThumb.png" width="300">
@@ -177,8 +181,8 @@
                     <!-- End .project-info -->
                 </div>
                 <!-- End .project -->
-
-
+                
+                
                 <!-- <div class="project shadow-large">
                     <div class="project-image">
                         <img src="images/project.jpg" />
@@ -191,9 +195,9 @@
                         <a href="#">View Project</a>
                     </div>
                 </div> -->
-
-
-
+                
+                
+                
                 <div class="project shadow-large">
                     <div class="project-image">
                         <img src="images/Graphics.png" width="300">
@@ -209,8 +213,8 @@
                     <!-- End .project-info -->
                 </div>
                 <!-- End .project -->
-
-
+                
+                
                 
                 <!-- <div class="project shadow-large">
                     <div class="project-image">
@@ -224,9 +228,9 @@
                         <a href="#">View Project</a>
                     </div>
                 </div> -->
-
-
-
+                
+                
+                
                 <!-- <div class="project shadow-large">
                     <div class="project-image">
                         <img src="images/project.jpg" />
@@ -239,9 +243,10 @@
                         <a href="https://github.com/junsujang-digipen/junsujang-digipen.github.io/blob/master/Projects/MyFirstGP.md">View Project</a>
                     </div>
                 </div> -->
-
                 
-                <div class="project shadow-large">
+                
+                <!-- ------------------------------------------------------------------------------------------- -->
+                <div class="project shadow-large" onclick="openModal('ProjectCube')">
                     <div class="project-image">
                         <img src="images/project.jpg" />
                     </div>
@@ -250,10 +255,17 @@
                         <p>
                             만들래 10분게임 콘테스트를 위해 만들었던 게임입니다. 블럭을 굴려서 다가오는 몬스터를 저지하는 캐주얼 퍼즐게임으로 안드로이드를 주 플랫폼으로 PC와 웹 까지 지원하도록 제작하였습니다. 
                         </p>
-                        <a href="./Projects/Graphics Engine 824ce05e9a1147e1af50605c139fd9fe.html">View Project</a>
+                        <a href="./Projects/ProjectCube.html">View Project</a>
                     </div>
                 </div>
-
+                <div id="ProjectCubeModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('ProjectCube')">&times;</span>
+                        <div id="ProjectCube-modalContent"></div>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------------------------- -->
+                
             </div>
         </div>
     </div>
@@ -346,13 +358,35 @@
     <script>
     function openModal(projectId) {
         document.getElementById(projectId + 'Modal').style.display = "block";
-        // body에 modal-open 클래스 추가
         document.body.classList.add('modal-open');
+        
+        // 프로젝트 페이지 내용 불러오기
+        fetch(`./Projects/${projectId}.html`)
+            .then(response => response.text())
+            .then(html => {
+                // 임시 div를 생성하여 HTML 파싱
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+                
+                // 필요한 내용만 선택 (예: article 또는 main 태그 내용)
+                const content = tempDiv.querySelector('article') || tempDiv.querySelector('main') || tempDiv.querySelector('.content');
+                
+                if (content) {
+                    document.getElementById(projectId + '-modalContent').innerHTML = content.innerHTML;
+                } else {
+                    // article이나 main 태그가 없는 경우 body의 내용을 가져옴
+                    const bodyContent = tempDiv.querySelector('body');
+                    document.getElementById(projectId + '-modalContent').innerHTML = bodyContent ? bodyContent.innerHTML : html;
+                }
+            })
+            .catch(error => {
+                console.error('Error loading content:', error);
+                document.getElementById(projectId + '-modalContent').innerHTML = '내용을 불러오는데 실패했습니다.';
+            });
     }
 
     function closeModal(projectId) {
         document.getElementById(projectId + 'Modal').style.display = "none";
-        // body에서 modal-open 클래스 제거
         document.body.classList.remove('modal-open');
     }
 
