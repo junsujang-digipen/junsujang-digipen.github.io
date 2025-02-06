@@ -27,11 +27,28 @@
     margin: 5vh auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 70%;
+    width: 80%;
     max-width: 800px;
     position: relative;
     max-height: 90vh;
     overflow-y: auto; /* 내용이 넘칠 경우 스크롤 생성 */
+}
+
+/* 태블릿 크기 */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        margin: 3vh auto;
+    }
+}
+
+/* 모바일 크기 */
+@media screen and (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        margin: 2vh auto;
+        padding: 15px;
+    }
 }
 
 .close {
