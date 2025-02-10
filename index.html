@@ -166,7 +166,26 @@
                     </div>
                 </div>
                 <!-- ------------------------------------------------------------------------------------------- -->
-                <div class="project shadow-large">
+                <div class="project shadow-large" onclick="openModal('ProjectCube')">
+                    <div class="project-image">
+                        <img src="images/project.jpg" />
+                    </div>
+                    <div class="project-info">
+                        <h3>Project Cube</h3>
+                        <p>
+                            만들래 10분게임 콘테스트를 위해 만들었던 게임입니다. 블럭을 굴려서 다가오는 몬스터를 저지하는 캐주얼 퍼즐게임으로 안드로이드를 주 플랫폼으로 PC와 웹 까지 지원하도록 제작하였습니다. 
+                        </p>
+                        <a href="./Projects/ProjectCube.html">View Project</a>
+                    </div>
+                </div>
+                <div id="ProjectCubeModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('ProjectCube')">&times;</span>
+                        <div id="ProjectCube-modalContent"></div>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------------------------- -->
+                <div class="project shadow-large disabled">
                     <div class="project-image">
                         <img src="images/WaveCollapseThumb.png" width="300">
                     </div>
@@ -180,6 +199,7 @@
                     <!-- End .project-info -->
                 </div>
                 <!-- End .project -->
+                <!-- ------------------------------------------------------------------------------------------- -->
                 
                 
                 <!-- <div class="project shadow-large">
@@ -197,7 +217,7 @@
                 
                 
                 
-                <div class="project shadow-large">
+                <div class="project shadow-large disabled">
                     <div class="project-image">
                         <img src="images/Graphics.png" width="300">
                     </div>
@@ -244,26 +264,6 @@
                 </div> -->
                 
                 
-                <!-- ------------------------------------------------------------------------------------------- -->
-                <div class="project shadow-large" onclick="openModal('ProjectCube')">
-                    <div class="project-image">
-                        <img src="images/project.jpg" />
-                    </div>
-                    <div class="project-info">
-                        <h3>Project Cube</h3>
-                        <p>
-                            만들래 10분게임 콘테스트를 위해 만들었던 게임입니다. 블럭을 굴려서 다가오는 몬스터를 저지하는 캐주얼 퍼즐게임으로 안드로이드를 주 플랫폼으로 PC와 웹 까지 지원하도록 제작하였습니다. 
-                        </p>
-                        <a href="./Projects/ProjectCube.html">View Project</a>
-                    </div>
-                </div>
-                <div id="ProjectCubeModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeModal('ProjectCube')">&times;</span>
-                        <div id="ProjectCube-modalContent"></div>
-                    </div>
-                </div>
-                <!-- ------------------------------------------------------------------------------------------- -->
                 
             </div>
         </div>
