@@ -77,9 +77,9 @@
     color: #888;
 }
 
-/* .project.disabled h3 {
+.project.disabled h3 {
     text-decoration: line-through;
-} */
+}
 
 .project.disabled a {
     color: #888;
