@@ -49,10 +49,10 @@
 
     <div id="lead">
         <div id="lead-content">
-            <img src="./images/ChillGuy.png" alt="Junsu Jang" class="profile-image">
+            <img src="./images/JunsuJang.png" alt="Junsu Jang" class="profile-image" onclick="changeImage(this)">
             <h1>장준수</h1>
             <h2>Game Programmer</h2>
-            <a href="./files/Junsu Jang - resume.docx" download="Junsu Jang - resume.docx" class="btn-rounded-white">Download Resume</a>
+            <!-- <a href="./files/Junsu Jang - resume.docx" download="Junsu Jang - resume.docx" class="btn-rounded-white">Download Resume</a> -->
         </div>
         <!-- End #lead-content -->
 
@@ -129,7 +129,7 @@
         <div class="container">
             <div class="row">
                 <!-- ------------------------------------------------------------------------------------------- -->
-                <div class="project shadow-large" onclick="openModal('jjengine')">
+                <div class="project shadow-large disabled" onclick="openModal('jjengine')">
                     <div class="project-image">
                         <img src="images/JJEngineThumbnail.png" width="300" >
                     </div>
@@ -198,7 +198,7 @@
                         <p>
                             Solo graphics projects. Implemented different graphics techniques on my own graphics engine.
                         </p>
-                        <a href="./Projects/Graphics Engine 824ce05e9a1147e1af50605c139fd9fe.html">View Project</a>
+                        <a href="./Projects/GraphicsSimulation.html">View Project</a>
                     </div>
                 </div>
                 <div id="GraphicsSimulationModal" class="modal">
@@ -208,20 +208,17 @@
                     </div>
                 </div>
                 <!-- ------------------------------------------------------------------------------------------- -->
-                <div class="project shadow-large disabled">
+                <!-- <div class="project shadow-large disabled">
                     <div class="project-image">
                         <img src="images/WaveCollapseThumb.png" width="300">
                     </div>
-                    <!-- End .project-image -->
                     <div class="project-info">
                         <h3>Wave Function Collapse with Different Sized Blocks</h3>
                         <p> A team research project to try Wavefunction Collapse in blocks of different sizes, with a twist on the existing Wavefunction Collapse algorithm. 
                         </p>
                         <a href="./Projects/Wave Function Collapse with Different Sized Blocks c8c104de34dc4577937c090f5fc72238.html">View Project</a>
                     </div>
-                    <!-- End .project-info -->
-                </div>
-                <!-- End .project -->
+                </div> -->
                 
                 
                 <!-- <div class="project shadow-large">
@@ -411,6 +408,14 @@
             event.stopPropagation();
         });
     });
+
+    function changeImage(imageElement) {
+        if (imageElement.src.indexOf("JunsuJang.png") !== -1) {
+            imageElement.src = "./images/ChillGuy.png";
+        } else {
+            imageElement.src = "./images/JunsuJang.png";
+        }
+    }
     </script>
     
 </body>
