@@ -57,6 +57,14 @@ const projects = [
         image: 'images/Graphics.png',
         link: './Projects/AcademicProjects.html',
         modalType: 'html'
+    },
+    {
+        id: 'ToyProjects',
+        name: 'Toy projects',
+        description: '기술 학습용 프로젝트',
+        image: 'images/Graphics.png',
+        link: './Projects/ToyProjects.html',
+        modalType: 'html'
     }
 ];
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -5,7 +6,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <style>
-        /* CSS styles will go here */
+        /* 기존 목차 스타일 제거하고 새로운 고정 목차 스타일 추가 */
+        
+        /* 고정 목차 버튼 */
+        .toc-toggle {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 10px;
+            border-radius: 5px 0 0 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
+        .toc-toggle:hover {
+            background-color: #0056b3;
+            right: 25px;
+        }
+        
+        /* 목차 사이드바 */
+        .toc-sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background-color: #f8f9fa;
+            border-left: 3px solid #007bff;
+            z-index: 1001;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        }
+        
+        .toc-sidebar.open {
+            right: 0;
+        }
+        
+        .toc-header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .toc-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .toc-content {
+            padding: 20px;
+        }
+        
+        .toc-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .toc-content li {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+        
+        .toc-content li:hover {
+            background-color: #e9ecef;
+        }
+        
+        .toc-content a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            display: block;
+        }
+        
+        .toc-content a:hover {
+            color: #007bff;
+        }
+        
+        /* 오버레이 (목차가 열릴 때 배경 어둡게) */
+        .toc-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .toc-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body>
@@ -13,14 +128,44 @@
         	<h1>Toy Projects</h1>
     	</header>
 		<h1><br></h1>
-		<hr style="border: 0; height: 1px; background-color: #000000; margin: 10px 0;">
+		<p>학습용 프로젝트
+		</p>
+
+<!-- 고정 목차 버튼 -->
+<button class="toc-toggle" onclick="toggleTOC()">목차</button>
+
+<!-- 목차 사이드바 -->
+<div class="toc-sidebar" id="tocSidebar">
+    <div class="toc-header">
+        <h3>프로젝트 목차</h3>
+        <button class="toc-close" onclick="toggleTOC()">&times;</button>
+    </div>
+    <div class="toc-content">
+        <ul>
+            <li><a href="#project1" onclick="scrollToProject('project1')">절차적 애니메이션 - FABRIK</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- 오버레이 -->
+<div class="toc-overlay" id="tocOverlay" onclick="toggleTOC()"></div>
+
+<hr style="border: 0; height: 1px; background-color: #000000; margin: 10px 0;">
+        <div id="project1">
+            <p><strong>절차적 애니메이션 - FABRIK</strong><br/>
+                FABRIK 알고리즘으로 IK 구현, 조작해 볼 수 있는 시물레이션<br/>
+                게임 <a href="https://www.youtube.com/watch?v=sVntwsrjNe4">Rain World 애니메이션에 대한 GDC</a>를 보고 촉수 크리처를 만들어본 시물레이션 제작 중<br>
+                <!-- <br/>Source: <a href="https://github.com/junsujang-digipen/Graphics-project-BV-SP">https://github.com/junsujang-digipen/Graphics-project-BV-SP</a> -->
+            </p>
+            <strong>프로젝트 영상:</strong>
+            <!-- <figure><iframe width="560" height="315" src="https://www.youtube.com/embed/V_0wRpq4WS0?si=eK3zYZxTdOnNaNLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></figure> -->
 		
+		<hr style="border: 0; height: 1px; background-color: #000000; margin: 10px 0;">
+		</div>
     <footer>
         <!-- Footer content will go here -->
     </footer>
 
-    <script>
-        // JavaScript code will go here
-    </script>
+    <script src="../js/projects.js"></script>
 </body>
 </html>

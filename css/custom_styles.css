@@ -64,6 +64,10 @@
     cursor: pointer;
 }
 
+.project-info {
+    text-align: center;
+}
+
 .project.disabled {
     opacity: 0.7;
     /* cursor: not-allowed; */
