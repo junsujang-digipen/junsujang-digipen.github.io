@@ -63,11 +63,20 @@
 .project {
     cursor: pointer;
 }
-
 .project-info {
-    text-align: center;
-}
+    position: relative;
+    top: 50%;
+    transform: translateY(20%);
+    margin-left: 300px;
+    padding: 15px;
+    h3 {
+        margin-right: 0px;
+    }
 
+    p {
+        margin-right: 0px;
+    }
+}
 .project.disabled {
     opacity: 0.7;
     /* cursor: not-allowed; */
